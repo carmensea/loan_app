@@ -1,6 +1,6 @@
 class BoxController < ApplicationController
   def new
-    # where the application for the loan will be
+    @client = BoxAdapter.new
   end
 
   def create
