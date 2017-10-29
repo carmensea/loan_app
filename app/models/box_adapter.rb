@@ -9,10 +9,10 @@ class BoxAdapter < ApplicationRecord
 
 
   def send_file(params)
-    @folder = @client.folder_from_path(params['path'])
+    @folder = @client.folder_from_path('/')
     @file = @client.upload_file(params['file'], @folder)
     @updated_file = @client.create_shared_link_for_file(@file, access: :open)
-    puts "Successfully uploaded file: #{params['file']}"
+    return true
   end
 end
 
