@@ -1,0 +1,16 @@
+body {
+  background: url('background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.background-color{
+    position: fixed;
+    width: 100%;
+    background: rgba($blue, 0.25);
+    overflow: hidden;
+    height: 100%;
+    z-index: 2;
+}
