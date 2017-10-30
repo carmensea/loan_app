@@ -1,5 +1,9 @@
 <%= render 'header' %>
-<h1 class="upload-text">Upload your loan file</h1>
-<div class="button-center">
-  <button type="button" class="upload-btn btn btn-primary">Upload</button>
+
+<div class="upload-content">
+  <form action="/file-upload" class="dropzone">
+    <div class="fallback">
+      <input name="file" type="file" multiple />
+    </div>
+  </form>
 </div>

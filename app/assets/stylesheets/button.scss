@@ -1,10 +1,10 @@
-.button-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.dropzone {
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  width: 40%;
+  height: 40%;
+  background: rgba($gray-800, .5);
+  border: dashed 2px white;
 }
 
-.upload-btn {
-  position: absolute;
-  top: 50%;
-}
