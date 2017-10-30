@@ -310,7 +310,7 @@ var Dropzone = function (_Emitter) {
          * An optional object to send additional headers to the server. Eg:
          * `{ "My-Awesome-Header": "header value" }`
          */
-        headers: null,
+        headers: {"X-CSRF-Token": $('meta[name="csrf-token"]').attr('content')},
 
         /**
          * If `true`, the dropzone element itself will be clickable, if `false`

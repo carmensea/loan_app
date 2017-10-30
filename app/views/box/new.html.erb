@@ -1,9 +1,14 @@
 <%= render 'header' %>
 
 <div class="upload-content">
-  <form action="/file-upload" class="dropzone">
-    <div class="fallback">
-      <input name="file" type="file" multiple />
+  <%= form_for @client, url: { action: "create" }, html: { multipart: true, class:
+    "dropzone", id: "my-dropzone"} do |f| %>
+    <div class="dz-message needsclick">
+      Drag file here or click to Upload
     </div>
-  </form>
+    <div class="fallback">
+      <%= f.file_field :file %>
+      <%= f.submit "Upload file" %>
+    </div>
+  <% end %>
 </div>
