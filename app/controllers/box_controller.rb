@@ -7,7 +7,7 @@ class BoxController < ApplicationController
     @client = BoxAdapter.new
     @client.boxr_call
     p "*" * 100
-    p params[:file]
+    p params[:file]["@original_filename"]
     if @client.send_file(params[:file])
       redirect_to 'index'
     else

@@ -1,0 +1,8 @@
+<div class="new-form">
+  <%= form_for(@upload, html: { multipart: true, class: "dropzone"}) do |f|  %>
+    <div class="fallback">
+      <%= f.file_field :document %><br>
+      <%= f.submit "Upload" %>
+    </div>
+  <% end %>
+</div>

@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/new', to: 'box#new'
   get '/', to: 'box#index'
   post '/file-upload', to: 'box#create'
+  resources :uploads
 end
