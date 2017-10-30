@@ -1,13 +1,10 @@
-.upload-content {
+.dropzone {
   position: absolute;
   left: 30%;
   top: 30%;
   width: 40%;
   height: 40%;
   background: rgba($gray-800, .5);
+  border: dashed 2px white;
 }
 
-.upload-btn {
-  display: block;
-  margin: 0 auto;
-}
