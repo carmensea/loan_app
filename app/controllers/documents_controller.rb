@@ -10,6 +10,20 @@ class DocumentsController < ApplicationController
     end
   end
 
+  def index
+    client = BoxAdapter.new
+    client.boxr_call
+    @items = client.show_files
+  end
+
+  def show
+    file = params[:id]
+    client = BoxAdapter.new
+    client = client.boxr_call
+    @download = client.download_file(file, version: nil, follow_redirect: true)
+    send_data @download
+  end
+
   private
     def document_params
       params.require(:document).permit(:file)
