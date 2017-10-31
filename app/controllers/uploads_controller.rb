@@ -6,13 +6,13 @@ class UploadsController < ApplicationController
   def create
     @upload = Upload.new(upload_params)
     if @upload.save
-      render json: { message: "success" }, :status => 200
+      render json: { message: "success", uploadId: @upload.id }, :status => 200
     else
-  	  render json: { error: @upload.errors.full_messages.join(',')}, :status => 400
+      render json: { error: @upload.errors.full_messages.join(',')}, :status => 400
     end
   end
 
-    private
+  private
 
     def upload_params
       params.permit(:document)
