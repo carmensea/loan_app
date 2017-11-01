@@ -6,20 +6,16 @@ class DocumentsController < ApplicationController
   def create
     document = Document.new(filename: params[:file])
     if document.save!
-      upload_to_box(document)
+      upload(document)
     end
   end
 
   def index
-    client = BoxAdapter.new
-    client.boxr_call
     @items = client.show_files
   end
 
   def show
     file = params[:id]
-    client = BoxAdapter.new
-    client = client.boxr_call
     @download = client.download_file(file, version: nil, follow_redirect: true)
     send_data @download
   end
@@ -29,13 +25,15 @@ class DocumentsController < ApplicationController
       params.require(:document).permit(:file)
     end
 
-    def upload_to_box(document)
-      client = BoxAdapter.new
-      client.boxr_call
+    def upload(document)
       if client.send_file(params[:file].tempfile)
         true
       else
         @errors = client.errors.full_message
       end
+    end
+
+    def client
+      @client ||= BoxAdapter.new
     end
 end

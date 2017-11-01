@@ -3,7 +3,7 @@ require 'boxr'
 class BoxAdapter < ApplicationRecord
   attr_accessor :client, :items
 
-  def boxr_call
+  def initialize
     @client = Boxr::Client.new
   end
 
