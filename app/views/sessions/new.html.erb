@@ -1,9 +1,8 @@
-<%= render 'header' %>
 <div class="container">
   <div class="row">
     <div class="login col-xs-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+      <%= render 'shared/login_errors' %>
       <h1>Login</h1>
-
       <%= form_for(:session, url: login_path) do |f| %>
 
         <div class="form-group">

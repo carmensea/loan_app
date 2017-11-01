@@ -1,11 +1,14 @@
-<%= render 'header' %>
-<div class="upload-files">
-  <div class="title">
-    <h1>Click to download file </h1>
+<% if logged_in? %>
+  <div class="upload-files">
+    <div class="title">
+      <h1>Click to download file </h1>
+    </div>
+    <ul class="link-list">
+      <% @items.each do |i| %>
+          <li class="link"><%= link_to "#{i.name}", controller: "documents", action: "show", id: i.id %></li>
+      <% end %>
+    </ul>
   </div>
-  <ul class="link-list">
-    <% @items.each do |i| %>
-        <li class="link"><%= link_to "#{i.name}", controller: "documents", action: "show", id: i.id %></li>
-    <% end %>
-  </ul>
-</div>
+<% else %>
+  <h1>Please log in to view this page</h1>
+<% end %>

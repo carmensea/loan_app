@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>BOALoanApp</title>
+    <nav class="navbar navbar-light bg-faded">
+      <a class="navbar-brand" href="https://www.bankofamerica.com/">
+        <%= image_tag("BOA_logo.png", class: "d-inline-block align-top logo") %>
+      </a>
+    </nav>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -11,6 +16,9 @@
   <body>
     <div class="background-color">
       <%= yield %>
+      <% unless current_page?(login_path) %>
+        <%= link_to "BOA Login", login_path, action: 'new', class: 'login-link' %>
+      <% end %>
     </div>
   </body>
 </html>
