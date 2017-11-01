@@ -1,0 +1,32 @@
+.logout-link {
+  position: absolute;
+  top: 20%;
+  left: 90%;
+}
+
+.login {
+  padding: 2%;
+  margin-top: 10%;
+  background: white;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+  height: 35%;
+    h1 {
+      color: black;
+      font-weight: 100;
+      text-align: center;
+    }
+}
+
+.submit-login{
+  text-align: center;
+  margin: 1em 0;
+}
+
+.login-link{
+  position: absolute;
+  top: 95%;
+  left: 90%;
+}

@@ -17,8 +17,7 @@ class DocumentsController < ApplicationController
 
   def show
     file = params[:id]
-    @download = client.download_file(file, version: nil, follow_redirect: true)
-    send_data @download
+    send_data client.download_file(file)
   end
 
   private
