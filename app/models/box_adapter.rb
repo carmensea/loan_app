@@ -1,18 +1,21 @@
 require 'boxr'
 
 class BoxAdapter < ApplicationRecord
-  attr_accessor :client
+  attr_accessor :client, :items
 
-  def boxr_call
+  def initialize
     @client = Boxr::Client.new
   end
 
 
   def send_file(file)
     folder = @client.folder_from_path('/')
-    box_file = @client.upload_file(file, folder)
-    updated_file = @client.create_shared_link_for_file(box_file, access: :open)
+    @client.upload_file(file, folder)
     return true
+  end
+
+  def show_files
+    @items = @client.folder_items(Boxr::ROOT)
   end
 end
 
