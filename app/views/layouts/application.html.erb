@@ -7,7 +7,7 @@
         <%= image_tag("BOA_logo.png", class: "d-inline-block align-top logo") %>
       </a>
       <% if logged_in? %>
-        <%= link_to "Logout", logout_path, action: 'destroy', class: 'logout-link' %>
+        <%= button_to "Logout", logout_path, method: 'delete', class: 'logout-link' %>
       <% end %>
     </nav>
     <%= csrf_meta_tags %>
