@@ -1,9 +1,11 @@
 <%= render 'header' %>
-<div class="dropzone">
-  <h1>Click to download file </h1>
-  <% @items.each do |i| %>
-    <ul style="list-style: none">
-      <li class="box-link"><%= link_to "#{i.name}", controller: "documents", action: "show", id: i.id %></li>
-    </ul>
-  <% end %>
+<div class="upload-files">
+  <div class="title">
+    <h1>Click to download file </h1>
+  </div>
+  <ul class="link-list">
+    <% @items.each do |i| %>
+        <li class="link"><%= link_to "#{i.name}", controller: "documents", action: "show", id: i.id %></li>
+    <% end %>
+  </ul>
 </div>
