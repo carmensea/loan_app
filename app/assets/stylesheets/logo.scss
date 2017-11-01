@@ -4,4 +4,7 @@
 
 .navbar {
   background: rgba($gray-200, .9);
+  position: fixed;
+  width: 100%;
+  z-index: 5;
 }
