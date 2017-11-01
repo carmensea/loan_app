@@ -4,9 +4,10 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    document = Document.new(filename: params[:file])
+    # create a document object to keep track of all files and times uploaded to Box server
+    document = Document.new(filename: params[:file].original_filename)
     if document.save!
-      upload(document)
+      upload(params[:file])
     end
   end
 
