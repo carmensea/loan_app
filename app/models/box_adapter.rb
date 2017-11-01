@@ -7,7 +7,6 @@ class BoxAdapter < ApplicationRecord
     @client = Boxr::Client.new
   end
 
-
   def send_file(file)
     folder = @client.folder_from_path('/')
     @client.upload_file(file, folder)
