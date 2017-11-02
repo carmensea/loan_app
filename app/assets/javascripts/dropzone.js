@@ -859,25 +859,25 @@ var Dropzone = function (_Emitter) {
         error: function error(file, message) {
           if (file.previewElement) {
             file.previewElement.classList.add("dz-error");
-            if (typeof message !== "String" && message.error) {
-              message = message.error;
-            }
-            for (var _iterator7 = file.previewElement.querySelectorAll("[data-dz-errormessage]"), _isArray7 = true, _i7 = 0, _iterator7 = _isArray7 ? _iterator7 : _iterator7[Symbol.iterator]();;) {
-              var _ref6;
-
-              if (_isArray7) {
-                if (_i7 >= _iterator7.length) break;
-                _ref6 = _iterator7[_i7++];
-              } else {
-                _i7 = _iterator7.next();
-                if (_i7.done) break;
-                _ref6 = _i7.value;
-              }
-
-              var node = _ref6;
-
-              node.textContent = message;
-            }
+//            if (typeof message !== "String" && message.error) {
+//              message = message.error;
+//            }
+//            for (var _iterator7 = file.previewElement.querySelectorAll("[data-dz-errormessage]"), _isArray7 = true, _i7 = 0, _iterator7 = _isArray7 ? _iterator7 : _iterator7[Symbol.iterator]();;) {
+//              var _ref6;
+//
+//              if (_isArray7) {
+//                if (_i7 >= _iterator7.length) break;
+//                _ref6 = _iterator7[_i7++];
+//              } else {
+//                _i7 = _iterator7.next();
+//                if (_i7.done) break;
+//                _ref6 = _i7.value;
+//              }
+//
+//              var node = _ref6;
+//
+//              node.textContent = message;
+//            }
           }
         },
         errormultiple: function errormultiple() {},
@@ -938,6 +938,7 @@ var Dropzone = function (_Emitter) {
         // Receives `file`
         success: function success(file) {
           if (file.previewElement) {
+            document.getElementById('success-message').classList.remove('hidden')
             return file.previewElement.classList.add("dz-success");
           }
         },
