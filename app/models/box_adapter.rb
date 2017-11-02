@@ -8,9 +8,9 @@ class BoxAdapter < ApplicationRecord
   end
 
 
-  def send_file(file)
+  def send_file(file, name)
     folder = @client.folder_from_path('/')
-    @client.upload_file(file, folder)
+    @client.upload_file(file, folder, name: name)
     return true
   end
 

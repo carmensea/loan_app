@@ -34,3 +34,8 @@
 ### Sessions
 ### Documents
 
+## Post MVP
+ - Put the uploads form behind login and add a second type of users, customers.
+ - Depending on type of user, you see the main uploads or can only upload.
+ - Alternatively, add a user-generated token for bank customers to use for uploading page.
+ - Organize customer uploads into folders.

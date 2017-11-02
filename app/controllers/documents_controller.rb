@@ -9,7 +9,7 @@ class DocumentsController < ApplicationController
     # create a document object to keep track of all files and times uploaded to Box server
     document = Document.new(filename: params[:file].original_filename)
     if document.save!
-      upload(params[:file.temp])
+      upload(params[:file])
     end
   end
 
@@ -28,7 +28,8 @@ class DocumentsController < ApplicationController
     end
 
     def upload(document)
-      if client.send_file(params[:file].tempfile)
+      file = params[:file]
+      if client.send_file(file.tempfile, file.original_filename)
         true
       else
         @errors = client.errors.full_message
