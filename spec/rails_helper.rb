@@ -3,6 +3,7 @@ require 'spec_helper'
 require 'support/factory_bot'
 require 'support/webmock'
 require 'support/user'
+require 'support/box'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
