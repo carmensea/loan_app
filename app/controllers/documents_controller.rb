@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :require_admin_login, only: [:index]
+  before_action :require_user_login, only: [:new]
 
   def new
     @document = Document.new
@@ -43,7 +44,13 @@ class DocumentsController < ApplicationController
 
     def require_admin_login
       unless current_user.admin?
-        redirect_to root_url
+        redirect_to root_path
+      end
+    end
+
+    def require_user_login
+      unless logged_in? && !current_user.admin?
+        redirect_to login_path
       end
     end
 end

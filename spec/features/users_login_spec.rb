@@ -21,6 +21,14 @@ RSpec.describe "Users Logins", type: :feature do
   describe "Valid Login" do
     it "correctly logs user in" do
       log_in_as_feature(@sample_user)
+      expect(page).to have_current_path(root_path)
+    end
+
+    it "correctly logs admin in" do
+      @admin = create(:admin, email: "hi@hi.com")
+      visit 'login'
+      stub_box_items_request
+      log_in_as_feature(@admin)
       expect(page).to have_current_path(uploads_path)
     end
   end
