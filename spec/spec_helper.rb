@@ -14,6 +14,23 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'webmock/rspec'
+include WebMock::API
+
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
+
+  def log_in_as(user)
+    session[:user_id] = user.id
+  end
+
+  def log_in_as_feature(user)
+    visit 'login'
+    fill_in('Email', :with => user.email)
+    fill_in('Password', :with => user.password)
+    click_button('Log in')
+  end
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -95,3 +112,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+

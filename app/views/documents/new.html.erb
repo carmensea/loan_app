@@ -1,4 +1,6 @@
 <div class="new-form">
+  <%= render 'success_message' %>
+  <%= render 'shared/login_errors' %>
   <%= form_for(@document, url: { action: "create" }, html: { multipart: true, class: "dropzone", id: "doc-dropzone"}) do |f|  %>
     <div class="fallback">
       <%= f.file_field :document %><br>
