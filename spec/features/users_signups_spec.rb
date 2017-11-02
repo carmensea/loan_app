@@ -16,12 +16,14 @@ RSpec.describe "Users Signups", type: :feature do
   end
 
   describe "Valid Signup" do
-    it "redirects to /uploads page" do
+    it "customer redirects to /uploading page" do
       fill_in('Email', :with => 'Betty@gmail.com')
+      fill_in('First name', :with => 'Betty')
+      fill_in('Last name', :with => 'Blue')
       fill_in('Password', :with => 'Password123')
       fill_in('Password confirmation', :with => 'Password123')
       click_button('Create Account')
-      expect(page).to have_content("Click to download")
+      expect(page).to have_content("You successfully uploaded this file! Oops, something went wrong! Please try again.")
     end
   end
 end

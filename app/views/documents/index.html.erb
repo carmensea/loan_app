@@ -1,4 +1,4 @@
-<% if logged_in? %>
+<% if logged_in? && current_user.admin? %>
   <div class="upload-files">
     <div class="title">
       <h1>Click to download file </h1>
@@ -9,6 +9,4 @@
       <% end %>
     </ul>
   </div>
-<% else %>
-  <h1>Please log in to view this page</h1>
 <% end %>

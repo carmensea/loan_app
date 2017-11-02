@@ -2,13 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "UsersLogins", type: :request do
 
-WebMock.stub_request(:post, 'www.example.com').
-  with(:body => 'abc')
-
   describe "Valid login" do
     before do
       @valid_user = create(:user)
-      get login_path
+      visit login_path
+      stub_box_items_request
     end
 
     it "redirects to the correct template" do

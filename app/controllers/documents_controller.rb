@@ -1,4 +1,7 @@
 class DocumentsController < ApplicationController
+  before_action :require_admin_login, only: [:index]
+  before_action :require_user_login, only: [:new]
+
   def new
     @document = Document.new
   end
@@ -26,7 +29,9 @@ class DocumentsController < ApplicationController
     end
 
     def upload(document)
-      if client.send_file(params[:file].tempfile)
+      file = params[:file]
+      filename = "#{Date.today}" + current_user.last_name + "." + current_user.first_name + "." + file.original_filename
+      if client.send_file(file.tempfile, filename)
         true
       else
         @errors = client.errors.full_message
@@ -35,5 +40,17 @@ class DocumentsController < ApplicationController
 
     def client
       @client ||= BoxAdapter.new
+    end
+
+    def require_admin_login
+      unless current_user.admin?
+        redirect_to root_path
+      end
+    end
+
+    def require_user_login
+      unless logged_in? && !current_user.admin?
+        redirect_to login_path
+      end
     end
 end
