@@ -1,4 +1,6 @@
 class DocumentsController < ApplicationController
+  before_action :require_login, only: [:index]
+
   def new
     @document = Document.new
   end
@@ -7,7 +9,7 @@ class DocumentsController < ApplicationController
     # create a document object to keep track of all files and times uploaded to Box server
     document = Document.new(filename: params[:file].original_filename)
     if document.save!
-      upload(params[:file])
+      upload(params[:file.temp])
     end
   end
 
@@ -35,5 +37,11 @@ class DocumentsController < ApplicationController
 
     def client
       @client ||= BoxAdapter.new
+    end
+
+    def require_login
+      unless current_user
+        redirect_to root_url
+      end
     end
 end

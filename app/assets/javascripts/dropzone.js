@@ -859,6 +859,7 @@ var Dropzone = function (_Emitter) {
         error: function error(file, message) {
           if (file.previewElement) {
             file.previewElement.classList.add("dz-error");
+            console.log(document.getElementById('error-message').classList.remove('hidden'))
 //            if (typeof message !== "String" && message.error) {
 //              message = message.error;
 //            }
