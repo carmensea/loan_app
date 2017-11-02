@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  before_action :require_login, only: [:index]
+  before_action :require_admin_login, only: [:index]
 
   def new
     @document = Document.new
@@ -40,8 +40,8 @@ class DocumentsController < ApplicationController
       @client ||= BoxAdapter.new
     end
 
-    def require_login
-      unless current_user
+    def require_admin_login
+      unless current_user.admin?
         redirect_to root_url
       end
     end
