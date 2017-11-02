@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
   def new
-    if logged_in?
+    if logged_in? && current_user.admin?
       redirect_to '/uploads'
+    elsif
+      logged_in? && !current_user.admin?
+      redirect_to '/'
     end
   end
 

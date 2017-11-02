@@ -29,7 +29,8 @@ class DocumentsController < ApplicationController
 
     def upload(document)
       file = params[:file]
-      if client.send_file(file.tempfile, file.original_filename)
+      filename = "#{Date.today}" + current_user.last_name + "." + current_user.first_name + "." + file.original_filename
+      if client.send_file(file.tempfile, filename)
         true
       else
         @errors = client.errors.full_message

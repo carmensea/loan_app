@@ -7,9 +7,9 @@
  - Change signup path to something obscure
  - Change styling on login and logout links
  - Make and edit video
- - Change file names before save
  - Write model tests for Box Adapter
  - Style X and Checkmark
+ - Make tests pass again
 
 ## Summary
 
