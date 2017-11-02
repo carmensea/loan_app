@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe SessionsController, type: :controller do
 
   describe "GET #new" do
-    context "not logged in"
+    context "not logged in" do
       it "returns http success" do
         get :new
         expect(response).to have_http_status(:success)
@@ -18,13 +18,4 @@ RSpec.describe SessionsController, type: :controller do
       end
     end
   end
-
-
-  #describe "POST #create" do
-  #  context "with valid params" do
-  #    it "redirects to uploads" do
-  #      post :create
-  #      expect(response).to redirect_to
-  #    end
-  #  end
-  #end
+end

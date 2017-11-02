@@ -1,24 +1,37 @@
-# README
+# BOA Loan App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TODO
 
-Things you may want to cover:
+ - Fix success styling for file upload
+ - Make sure everything is responsive using bootstrap columns
+ - Change signup path to something obscure
+ - Fix /uploads to redirect to home if not logged in
+ - Change styling on login and logout links
+ - Upload error message
+ - Make and edit video
+ - Change file names before save
+ - Write model tests for Box Adapter
 
-* Ruby version
+## Summary
 
-* System dependencies
+ - Fill this out later
 
-* Configuration
+## Models
 
-* Database creation
+### BoxAdapter
+### Document
+### User
 
-* Database initialization
+## Views
 
-* How to run the test suite
+### Uploads - customer-facing
+### Downloads - employee-facing
+### Signup - employee-facing
+### Login - employee-facing
 
-* Services (job queues, cache servers, search engines, etc.)
+## Controllers
 
-* Deployment instructions
+### Users
+### Sessions
+### Documents
 
-* ...

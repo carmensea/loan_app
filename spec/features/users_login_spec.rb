@@ -4,6 +4,7 @@ RSpec.describe "Users Logins", type: :feature do
   before do
     @sample_user = create(:user)
     visit 'login'
+    stub_box_items_request
   end
 
   describe "Invalid Login" do

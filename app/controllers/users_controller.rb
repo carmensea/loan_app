@@ -15,8 +15,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      p "8" * 9
-      p params
       params.require(:user).permit(:email, :password,
                                   :password_confirmation)
     end
