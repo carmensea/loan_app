@@ -20,7 +20,6 @@ class BoxAdapter < ApplicationRecord
 
   def download_file(file)
     @client.download_file(file, version: nil, follow_redirect: true)
-    true
   end
 end
 

@@ -23,7 +23,7 @@ RSpec.describe "Users Signups", type: :feature do
       fill_in('Password', :with => 'Password123')
       fill_in('Password confirmation', :with => 'Password123')
       click_button('Create Account')
-      expect(page).to have_content("You successfully uploaded this file! Oops, something went wrong! Please try again.")
+      expect(page).to have_content("Successfully uploaded file! You've already sent this file!")
     end
   end
 end

@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
-  before_action :require_admin_login, only: [:index]
-  before_action :require_user_login, only: [:new, :show, :create]
+  before_action :require_admin_login, only: [:index, :show]
+  before_action :require_user_login, only: [:new, :create]
 
   def new
     @document = Document.new
