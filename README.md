@@ -6,7 +6,7 @@ A digital portal that allows Bank of America customers to login and
 upload their loan applications to Bank of America's Box account. The portal
 also extends to Bank of America employees, allowing them to log into their
 admin account and download files uploaded by customers.
-
+![Box-App](https://github.com/carmensea/loan_app/blob/master/upload_page.png)
 ## Models
 
 ### BoxAdapter
