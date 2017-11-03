@@ -1,7 +1,7 @@
 <div class="new-form">
-  <%= render 'messages' %>
   <%= render 'shared/login_errors' %>
-  <%= form_for(@document, url: { action: "create" }, html: { multipart: true, class: "dropzone", id: "doc-dropzone"}) do |f|  %>
+  <%= form_for(@document, url: { action: "create" }, html: { multipart: true, class: "dropzone dropzone-custom", id: "doc-dropzone"}) do |f|  %>
+  <%= render 'messages' %>
     <div class="fallback">
       <%= f.file_field :document %><br>
       <%= f.submit "Upload" %>
