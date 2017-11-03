@@ -941,6 +941,7 @@ var Dropzone = function (_Emitter) {
         success: function success(file) {
           if (file.previewElement) {
             document.getElementById('success-message').classList.remove('hidden')
+            document.getElementById('error-message').classList.add('hidden')
             document.getElementById('doc-dropzone').classList.remove('dz-clickable')
             $('.dropzone')[0].removeEventListener('click', this.listeners[1].events.click);
             return file.previewElement.classList.add("dz-success");
