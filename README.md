@@ -1,52 +1,43 @@
 # BOA Loan App
 
-## TODO
-
- - Make sure everything is responsive using bootstrap columns
- - Make and edit video
- - Write model tests for Box Adapter
- - Style X and Checkmark
- - Make tests pass again
-
 ## Summary
 
-A digital portal that allows current Bank of America customers to login and
-upload loan their applications to Bank of America's Box account. The portal
-also extends to Bank of America employees. An employee can log into their
-admin account and download uploaded files from customers.
+A digital portal that allows Bank of America customers to login and
+upload their loan applications to Bank of America's Box account. The portal
+also extends to Bank of America employees, allowing them to log into their
+admin account and download files uploaded by customers.
 
 ## Models
 
 ### BoxAdapter
 
-BoxAdapter is the gateway to Box. Within this model, customers make the
-request to send a file, and employees can view all files or download them.
-BoxAdapter relies on the Boxr gem.
+BoxAdapter is the gateway to Box by relying on the Boxr gem. This model
+supports sending a file, downloading a file, and viewing all files.
 
 ### Document
 
-Document model maintains a log of all filenames and creation data. The model is
-used to keep track of every file uploaded.
+Document model is used to keep track of every file uploaded to the server,
+regardless of a successful Box upload.  This could later be used to logging and upload metrics.
 
 ### User
 
 There are two types of users: Employess and Customers, or Users and Admin-Users.
 The signup page can be used by both employees and customers. Employees will require
-the IT department or Dev team to issue them an Admin account. Once equipped with an
-admin account, an employee has access to view the uploads page (where customer files live).
+the IT department or Dev team to update their account to become an admin. Once equipped with an
+admin account, an employee has access to view the uploads page to view all customer files.
 Customers only have access to the uploading page and login page. 
 
 ## Views
 
 ### Uploads
 
-Uploads is a customer-facing page that redirects to the login page if a user is not
-logged in and to the uploading page a user is logged in, but does not have sufficient
-permissions.
+Uploads is an admin-facing page that lists all files that are stored in Box.
+It redirects to the login page if a user is not logged in and to the file uploading
+page if a user is logged in as a customer.
 
 ### Downloads
 
-Downloads is an employee-facing page that a non-admin user would see.
+Downloads is an customer-facing page that allows users to upload to Box.
 
 ### Signup & Login
 
@@ -71,4 +62,4 @@ attempts to view the uploads page, they are redirected to the uploading
 page. If a non-user attempts to view any page, they are redirected to login.
 
 ## Post MVP
- - Organize customer uploads into folders.
+ - Organize customer uploads into customer specific folders.
