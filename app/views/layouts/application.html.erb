@@ -16,10 +16,14 @@
       <% else %>
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <li class="nav-item ">
-            <%= link_to "Login", login_path, class: 'nav-link' %>
+            <% unless current_page?(login_path) %>
+              <%= link_to "Login", login_path, class: 'nav-link' %>
+            <% end %>
           </li>
           <li class="nav-item ">
-            <%= link_to "Signup", signup_path, class: 'nav-link' %>
+            <% unless current_page?(signup_path) %>
+              <%= link_to "Signup", signup_path, class: 'nav-link' %>
+            <% end %>
           </li>
         </ul>
       <% end %>
