@@ -17,7 +17,7 @@ supports sending a file, downloading a file, and viewing all files.
 ### Document
 
 Document model is used to keep track of every file uploaded to the server,
-regardless of a successful Box upload.  This could later be used to logging and upload metrics.
+regardless of a successful Box upload.  This could later be used for logging and upload metrics.
 
 ### User
 
@@ -37,7 +37,7 @@ page if a user is logged in as a customer.
 
 ### Downloads
 
-Downloads is an customer-facing page that allows users to upload to Box.
+Downloads is a customer-facing page that allows users to upload to Box.
 
 ### Signup & Login
 
