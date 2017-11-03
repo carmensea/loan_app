@@ -30,7 +30,7 @@ class DocumentsController < ApplicationController
 
     def upload(document)
       file = params[:file]
-      filename = "#{Date.today}" + current_user.last_name + "." + current_user.first_name + "." + file.original_filename
+      filename = "#{Date.today}_#{current_user.last_name}_#{current_user.first_name}_#{file.original_filename}"
       if client.send_file(file.tempfile, filename)
         true
       else
