@@ -23,7 +23,7 @@ RSpec.describe BoxAdapter, type: :model do
       allow_any_instance_of(Boxr::Client).to receive(:download_file).with(file, version: nil, follow_redirect: true)
     end
     it 'returns true after downloading file' do
-      expect(adapter.download_file(file)).to be true
+      expect(adapter.download_file(file)).to be nil
     end
   end
 end
