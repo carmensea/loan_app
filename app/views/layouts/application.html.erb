@@ -12,7 +12,7 @@
         <%= image_tag("BOA_logo.png", class: "d-inline-block align-top logo") %>
       </a>
       <% if logged_in? %>
-        <%= button_to "Logout", logout_path, method: 'delete', class: 'logout-link' %>
+        <%= button_to "Logout", logout_path, method: 'delete', class: 'btn btn-primary logout-button' %>
       <% end %>
     </nav>
     <div class="background-color">
