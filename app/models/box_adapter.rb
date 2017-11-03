@@ -11,7 +11,7 @@ class BoxAdapter < ApplicationRecord
   def send_file(file, name)
     folder = @client.folder_from_path('/')
     @client.upload_file(file, folder, name: name)
-    return true
+    true
   end
 
   def show_files
@@ -20,6 +20,7 @@ class BoxAdapter < ApplicationRecord
 
   def download_file(file)
     @client.download_file(file, version: nil, follow_redirect: true)
+    true
   end
 end
 

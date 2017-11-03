@@ -1,28 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe "UsersLogins", type: :request do
+  describe "Admin Users" do
+    let(:admin) { create(:admin) }
+    describe "Successful Login" do
+      before do
+        get login_path
+        stub_box_items_request
+      end
 
-  describe "Valid login" do
-    before do
-      @valid_user = create(:user)
-      visit login_path
-      stub_box_items_request
+      it "redirects to the uploads path" do
+        post login_path, params: { session: { email: admin.email, password: admin.password } }
+        expect(response).to redirect_to(uploads_path)
+      end
     end
 
-    it "redirects to the correct template" do
-      post login_path, params: { session: { email: @valid_user.email, password: @valid_user.password } }
-      expect(response).to redirect_to(uploads_path)
+    describe "Unsuccessful Login" do
+      it "renders new" do
+        post login_path, params: { session: { email: admin.email, password: "wrong" } }
+        expect(response).to render_template(:new)
+      end
     end
-
-    it "redirects when not logged in" do
-      get uploads_path
-      expect(response).to redirect_to(login_url)
-    end
-
-    it "successfully logs user out when clicked" do
-      post login_path, params: { session: { email: @valid_user.email, password: @valid_user.password } }
-      delete logout_path
-      expect(response).to redirect_to root_path
+    describe "Successful logout" do
+      it "successfully logs user out when clicked" do
+        post login_path, params: { session: { email: admin.email, password: admin.password } }
+        delete logout_path
+        expect(response).to redirect_to login_path
+      end
     end
   end
+  describe "Not Logged in" do
+    it "redirects when not logged in" do
+      get uploads_path
+      expect(response).to redirect_to(login_path)
+    end
+  end
+
 end

@@ -20,7 +20,9 @@ RSpec.describe "Users Signups", type: :request do
     it "changes user count with correct params" do
       get signup_path
       expect { User.count }.to change {
-        post users_path, params: { user: { email: "betty@gmail.com",
+        post users_path, params: { user: { first_name: "betty",
+                                           last_name: "white",
+                                           email: "betty@gmail.com",
                                            password: "password123",
                                            password_confirmation: "password123" } }
         }

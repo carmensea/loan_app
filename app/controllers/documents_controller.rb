@@ -44,7 +44,7 @@ class DocumentsController < ApplicationController
 
     def require_admin_login
       unless logged_in? && is_admin?
-        redirect_to root_path
+        redirect_to login_path
       end
     end
 
