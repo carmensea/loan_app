@@ -12,9 +12,9 @@ RSpec.describe "Users Logins", type: :feature do
       fill_in('Email', :with => '')
       fill_in('Password', :with => '')
       click_button('Log in')
-      expect(page).to have_text('Invalid email/password combination Login Email Password BOA Login')
+      expect(page).to have_content('Invalid email/password combination Login Email Password')
       visit root_path
-      expect(page).to_not have_content('Invalid email/password combination Login Email Password BOA Login')
+      expect(page).to_not have_content('Invalid email/password combination Login Email Password')
     end
   end
 

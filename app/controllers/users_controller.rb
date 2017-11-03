@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_no_user, only: [:new]
+
   def new
     @user = User.new
   end
@@ -22,4 +24,11 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :email, :password,
                                   :password_confirmation)
     end
+
+    def require_no_user
+      redirect_to uploads_path if logged_in? && is_admin?
+      redirect_to root_path if logged_in? && !is_admin?
+    end
+
+
 end
